@@ -1,0 +1,16 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'
+            - '../src/Purchase/Domain/{Model,Exception}/'
+            - '../src/Purchase/Application/Command/{RegisterPurchase,PurchasedProduct,RegistrationResult,PurchaseDateParser}.php'
+            - '../src/Purchase/Application/Query/{Period,PurchaseFilters,InvalidFilter}.php'
+            - '../src/Purchase/Infrastructure/WooCommerce/{WooCommerceOrderReceived,InvalidWooCommerceOrder}.php'
+            - '../src/Purchase/UI/Http/Request/'

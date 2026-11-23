@@ -1,0 +1,29 @@
+framework:
+    messenger:
+        failure_transport: failed
+
+        transports:
+            # Pedidos do WooCommerce vão pro RabbitMQ e são consumidos pelo worker
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    exchange:
+                        name: woocommerce_orders
+                    queues:
+                        woocommerce_orders: ~
+                retry_strategy:
+                    max_retries: 3
+                    delay: 2000
+                    multiplier: 3
+
+            # Mensagens que esgotaram as tentativas ficam no Postgres pra análise e reprocessamento
+            failed: 'doctrine://default?queue_name=failed'
+
+        routing:
+            App\Purchase\Infrastructure\WooCommerce\WooCommerceOrderReceived: async
+
+when@test:
+    framework:
+        messenger:
+            transports:
+                async: 'in-memory://'

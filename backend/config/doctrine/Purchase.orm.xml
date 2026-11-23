@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Purchase\Domain\Model\Purchase" table="purchases">
+        <indexes>
+            <index name="idx_purchases_purchased_at" columns="purchased_at"/>
+            <index name="idx_purchases_customer" columns="customer_id"/>
+            <index name="idx_purchases_amount" columns="amount_cents"/>
+        </indexes>
+
+        <unique-constraints>
+            <unique-constraint name="uniq_purchases_reference" columns="reference"/>
+        </unique-constraints>
+
+        <id name="id" type="bigint">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="reference" length="100"/>
+        <field name="purchasedAt" column="purchased_at" type="datetimetz_immutable"/>
+        <field name="notes" type="text" nullable="true"/>
+        <field name="source" length="20" enum-type="App\Purchase\Domain\Model\PurchaseSource"/>
+        <field name="createdAt" column="created_at" type="datetimetz_immutable"/>
+
+        <embedded name="amount" class="App\Purchase\Domain\Model\Money" column-prefix="amount_"/>
+        <embedded name="discount" class="App\Purchase\Domain\Model\Money" column-prefix="discount_"/>
+
+        <one-to-many field="items" target-entity="App\Purchase\Domain\Model\PurchaseItem" mapped-by="purchase" orphan-removal="true">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+
+        <many-to-one field="customer" target-entity="App\Purchase\Domain\Model\Customer">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <join-column name="customer_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>

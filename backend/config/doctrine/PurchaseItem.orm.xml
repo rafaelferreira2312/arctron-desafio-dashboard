@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Purchase\Domain\Model\PurchaseItem" table="purchase_items">
+        <indexes>
+            <index name="idx_purchase_items_purchase" columns="purchase_id"/>
+            <index name="idx_purchase_items_product" columns="product_id"/>
+        </indexes>
+
+        <id name="id" type="bigint">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="productName" column="product_name"/>
+        <field name="quantity" type="integer"/>
+
+        <embedded name="unitPrice" class="App\Purchase\Domain\Model\Money" column-prefix="unit_price_"/>
+
+        <many-to-one field="purchase" target-entity="App\Purchase\Domain\Model\Purchase" inversed-by="items">
+            <join-column name="purchase_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+        </many-to-one>
+
+        <many-to-one field="product" target-entity="App\Purchase\Domain\Model\Product">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <join-column name="product_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>

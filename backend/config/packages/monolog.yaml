@@ -1,0 +1,31 @@
+monolog:
+    channels:
+        - deprecation
+
+when@dev:
+    monolog:
+        handlers:
+            main:
+                type: stream
+                path: 'php://stderr'
+                level: debug
+                channels: ['!event', '!doctrine', '!deprecation']
+
+when@test:
+    monolog:
+        handlers:
+            main:
+                type: stream
+                path: '%kernel.logs_dir%/%kernel.environment%.log'
+                level: debug
+                channels: ['!event']
+
+when@prod:
+    monolog:
+        handlers:
+            main:
+                type: stream
+                path: 'php://stderr'
+                level: info
+                formatter: monolog.formatter.json
+                channels: ['!event', '!deprecation']

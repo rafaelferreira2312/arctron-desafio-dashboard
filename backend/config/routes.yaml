@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../src/Purchase/UI/Http/
+        namespace: App\Purchase\UI\Http
+    type: attribute

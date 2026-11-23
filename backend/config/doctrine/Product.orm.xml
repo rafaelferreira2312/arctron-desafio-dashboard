@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Purchase\Domain\Model\Product" table="products">
+        <unique-constraints>
+            <unique-constraint name="uniq_products_normalized_name" columns="normalized_name"/>
+        </unique-constraints>
+
+        <id name="id" type="bigint">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <field name="name"/>
+        <field name="normalizedName" column="normalized_name"/>
+        <field name="createdAt" column="created_at" type="datetimetz_immutable"/>
+    </entity>
+
+</doctrine-mapping>
