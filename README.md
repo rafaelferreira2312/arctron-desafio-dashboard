@@ -24,7 +24,7 @@ make seed        # opcional: gera 200 compras fictícias para o dashboard ter vo
 | --- | --- |
 | Dashboard | http://localhost:5173 |
 | API | http://localhost:8000 (`/health` para checar) |
-| Loja WooCommerce | http://localhost:8080 — admin em `/wp-admin` com `admin` / `admin` |
+| Loja WooCommerce | http://localhost:8081 — admin em `/wp-admin` com `admin` / `admin` |
 | RabbitMQ | http://localhost:15672 — `guest` / `guest` |
 | PostgreSQL | `localhost:5433` — `app` / `app`, banco `purchases` |
 
@@ -174,7 +174,7 @@ O fluxo de um pedido:
 5. Como o WooCommerce dispara `order.updated` várias vezes para o mesmo pedido, a referência `WC-{número}` garante que ele vira uma compra só.
 6. Erro temporário (banco fora, por exemplo) tenta de novo 3 vezes com espera crescente. Pedido inválido (sem CPF, por exemplo) vai direto para o transporte `failed`, sem retentativa.
 
-Para testar pela loja: abra http://localhost:8080, adicione um produto no carrinho, finalize com "Pagamento na entrega" informando um CPF válido (ex: `529.982.247-25`). O pedido aparece no dashboard em segundos. Ou gere mais pedidos de uma vez:
+Para testar pela loja: abra http://localhost:8081, adicione um produto no carrinho, finalize com "Pagamento na entrega" informando um CPF válido (ex: `529.982.247-25`). O pedido aparece no dashboard em segundos. Ou gere mais pedidos de uma vez:
 
 ```bash
 make woo-orders

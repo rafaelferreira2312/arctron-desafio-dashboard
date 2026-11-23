@@ -111,7 +111,7 @@ services:
   wordpress:
     image: wordpress:6-php8.3-apache
     ports:
-      - "8080:80"
+      - "8081:80"
     environment: &wordpress-env
       WORDPRESS_DB_HOST: wordpress-db
       WORDPRESS_DB_USER: wordpress
@@ -132,7 +132,7 @@ services:
     entrypoint: ["sh", "/setup/setup.sh"]
     environment:
       <<: *wordpress-env
-      WP_URL: http://localhost:8080
+      WP_URL: http://localhost:8081
       ARCTRON_WEBHOOK_URL: http://api/webhooks/woocommerce
       WOOCOMMERCE_WEBHOOK_SECRET: ${WOOCOMMERCE_WEBHOOK_SECRET:-arctron-webhook-secret}
     volumes:

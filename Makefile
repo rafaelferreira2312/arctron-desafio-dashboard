@@ -8,7 +8,7 @@ up: ## Sobe tudo (API, worker, frontend, Postgres, RabbitMQ e WooCommerce)
 	@echo ""
 	@echo "Dashboard:   http://localhost:5173"
 	@echo "API:         http://localhost:8000/health"
-	@echo "WooCommerce: http://localhost:8080 (admin/admin) - o setup leva alguns minutos na primeira vez"
+	@echo "WooCommerce: http://localhost:8081 (admin/admin) - o setup leva alguns minutos na primeira vez"
 	@echo "RabbitMQ:    http://localhost:15672 (guest/guest)"
 
 down:
