@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Instala o WordPress + WooCommerce, cria produtos, o webhook apontando pra API e alguns pedidos de exemplo.
 # Roda uma vez pelo container "woocommerce-setup" (wp-cli).
-set -euo pipefail
+set -eu
 
 WP="wp --path=/var/www/html"
 

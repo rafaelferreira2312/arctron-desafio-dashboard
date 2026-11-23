@@ -191,7 +191,7 @@ final class DbalPurchaseSearch implements PurchaseSearch
             <<<'SQL'
                 SELECT purchase_id, product_name, quantity, unit_price_cents
                 FROM purchase_items
-                WHERE purchase_id = ANY(CAST(:ids AS BIGINT[]))
+                WHERE purchase_id = ANY(CAST(:ids AS INT[]))
                 ORDER BY id
                 SQL,
             ['ids' => '{'.implode(',', $purchaseIds).'}'],

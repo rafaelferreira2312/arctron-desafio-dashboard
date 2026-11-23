@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# Marca de "pronto" para o healthcheck; recriada depois das migrations
+rm -f var/.ready
+
 if [ "$APP_ENV" != "prod" ] && [ ! -f vendor/autoload_runtime.php ]; then
     echo "Instalando dependências do composer..."
     composer install --no-interaction --prefer-dist --no-progress

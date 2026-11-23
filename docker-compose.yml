@@ -129,7 +129,7 @@ services:
   woocommerce-setup:
     image: wordpress:cli-php8.3
     user: "33:33"
-    entrypoint: ["bash", "/setup/setup.sh"]
+    entrypoint: ["sh", "/setup/setup.sh"]
     environment:
       <<: *wordpress-env
       WP_URL: http://localhost:8080

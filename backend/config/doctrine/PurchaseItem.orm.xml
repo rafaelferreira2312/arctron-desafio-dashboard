@@ -10,7 +10,7 @@
             <index name="idx_purchase_items_product" columns="product_id"/>
         </indexes>
 
-        <id name="id" type="bigint">
+        <id name="id" type="integer">
             <generator strategy="IDENTITY"/>
         </id>
 

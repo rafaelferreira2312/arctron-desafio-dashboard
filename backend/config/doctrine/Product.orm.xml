@@ -9,7 +9,7 @@
             <unique-constraint name="uniq_products_normalized_name" columns="normalized_name"/>
         </unique-constraints>
 
-        <id name="id" type="bigint">
+        <id name="id" type="integer">
             <generator strategy="IDENTITY"/>
         </id>
 
