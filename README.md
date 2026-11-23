@@ -4,7 +4,7 @@ Serviço que recebe compras (pela API ou pelo WooCommerce), guarda no PostgreSQL
 
 | Parte | Tecnologia |
 | --- | --- |
-| Serviço | PHP 8.3, Symfony 7.3, Doctrine ORM 3 / DBAL 4 |
+| Serviço | PHP 8.3, Symfony 7.4 (LTS), Doctrine ORM 3 / DBAL 4 |
 | Banco | PostgreSQL 16 |
 | Fila | RabbitMQ 3.13 (Symfony Messenger) |
 | Frontend | React 19, TypeScript, Vite, TanStack Query, Recharts |
