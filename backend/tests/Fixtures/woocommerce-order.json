@@ -1,0 +1,88 @@
+{
+    "id": 4821,
+    "parent_id": 0,
+    "number": "4821",
+    "order_key": "wc_order_Xk3pQ9mZ1aB2c",
+    "created_via": "checkout",
+    "version": "9.4.2",
+    "status": "processing",
+    "currency": "BRL",
+    "date_created": "2026-11-20T14:30:00",
+    "date_created_gmt": "2026-11-20T17:30:00",
+    "date_modified": "2026-11-20T14:31:12",
+    "date_modified_gmt": "2026-11-20T17:31:12",
+    "discount_total": "30.00",
+    "discount_tax": "0.00",
+    "shipping_total": "25.00",
+    "shipping_tax": "0.00",
+    "cart_tax": "0.00",
+    "total": "394.80",
+    "total_tax": "0.00",
+    "prices_include_tax": false,
+    "customer_id": 12,
+    "customer_note": "Entregar no período da tarde",
+    "billing": {
+        "first_name": "Marina",
+        "last_name": "Albuquerque",
+        "company": "",
+        "address_1": "Rua das Laranjeiras, 120",
+        "address_2": "Apto 302",
+        "city": "Rio de Janeiro",
+        "state": "RJ",
+        "postcode": "22240-003",
+        "country": "BR",
+        "email": "marina.albuquerque@example.com",
+        "phone": "(21) 99999-0000"
+    },
+    "shipping": {
+        "first_name": "Marina",
+        "last_name": "Albuquerque",
+        "address_1": "Rua das Laranjeiras, 120",
+        "city": "Rio de Janeiro",
+        "state": "RJ",
+        "postcode": "22240-003",
+        "country": "BR"
+    },
+    "payment_method": "cod",
+    "payment_method_title": "Pagamento na entrega",
+    "meta_data": [
+        { "id": 9001, "key": "_billing_cpf", "value": "390.533.447-05" },
+        { "id": 9002, "key": "is_vat_exempt", "value": "no" }
+    ],
+    "line_items": [
+        {
+            "id": 311,
+            "name": "Teclado Mecânico ABNT2",
+            "product_id": 51,
+            "variation_id": 0,
+            "quantity": 1,
+            "tax_class": "",
+            "subtotal": "249.90",
+            "subtotal_tax": "0.00",
+            "total": "224.91",
+            "total_tax": "0.00",
+            "sku": "TEC-ABNT2",
+            "price": 224.91
+        },
+        {
+            "id": 312,
+            "name": "Mouse Sem Fio",
+            "product_id": 52,
+            "variation_id": 0,
+            "quantity": 2,
+            "tax_class": "",
+            "subtotal": "149.90",
+            "subtotal_tax": "0.00",
+            "total": "144.89",
+            "total_tax": "0.00",
+            "sku": "MOU-SF",
+            "price": 72.445
+        }
+    ],
+    "shipping_lines": [
+        { "id": 313, "method_title": "SEDEX", "method_id": "flat_rate", "total": "25.00" }
+    ],
+    "coupon_lines": [
+        { "id": 314, "code": "black10", "discount": "30.00" }
+    ]
+}
