@@ -109,7 +109,7 @@ services:
       retries: 20
 
   wordpress:
-    image: wordpress:6-php8.3-apache
+    image: wordpress:php8.3-apache
     ports:
       - "8081:80"
     environment: &wordpress-env
@@ -133,6 +133,7 @@ services:
     environment:
       <<: *wordpress-env
       WP_URL: http://localhost:8081
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
       ARCTRON_WEBHOOK_URL: http://api/webhooks/woocommerce
       WOOCOMMERCE_WEBHOOK_SECRET: ${WOOCOMMERCE_WEBHOOK_SECRET:-arctron-webhook-secret}
     volumes:
